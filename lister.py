@@ -18,6 +18,9 @@ with open('directory_listing.csv', 'w', newline='') as csvfile:
     # Skip the ARCHIVE subdirectory
     if 'ARCHIVE' in dirs:
       dirs.remove('ARCHIVE')
+      dirs.remove('INSTRUCTIONS_in progress')
+      dirs.remove('PENDING FSCA PAYMENTS_DO NOT WORK UNTIL NOTIFIED BY FSCA STAFF')
+      dirs.remove('Ready for FINANCE')
     # Iterate over the files in the current directory
     for filename in files:
       # Get the file's path
