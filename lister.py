@@ -5,7 +5,7 @@ import os
 import csv
 
 # Set the root directory you want to list
-root_directory = '/home/daniel/code'
+root_directory = 'O:\\FINANCE\\SS-CA\\Contracting\\PaymentRequests'
 
 # Open the output CSV file for writing
 with open('directory_listingr.csv', 'w', newline='') as csvfile:
@@ -20,11 +20,13 @@ with open('directory_listingr.csv', 'w', newline='') as csvfile:
       # Get the file's path
       file_path = os.path.join(root, filename)
       # Get the file's size and modified time
-      
       file_size = os.stat(file_path).st_size
       file_modified_time = os.stat(file_path).st_mtime
+   
       # Write the file's information to the CSV file
       writer.writerow([filename, file_size, file_modified_time, file_path])
+
+
 
 
 
