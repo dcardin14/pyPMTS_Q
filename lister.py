@@ -1,15 +1,30 @@
-import pathlib, os
- 
-includes = ['*.msg']
-excludes = ['PENDING']
+#12/26/2022 DC:  ChatGPT made this script for me.
 
-# Get the list of all files and directories
-path = "O:/FINANCE/SS-CA/Contracting/PaymentRequests"
 
-these = os.walk(path)
+import os
+import csv
 
-for x in these:
-    print(x)
- 
+# Set the root directory you want to list
+root_directory = '/home/daniel/code'
+
+# Open the output CSV file for writing
+with open('directory_listingr.csv', 'w', newline='') as csvfile:
+  # Create a CSV writer object
+  writer = csv.writer(csvfile)
+  # Write the column headers
+  writer.writerow(['Name', 'Size', 'Modified Time', 'Path'])
+  # Iterate over the directories and files in the root directory
+  for root, dirs, files in os.walk(root_directory):
+    # Iterate over the files in the current directory
+    for filename in files:
+      # Get the file's path
+      file_path = os.path.join(root, filename)
+      # Get the file's size and modified time
+      
+      file_size = os.stat(file_path).st_size
+      file_modified_time = os.stat(file_path).st_mtime
+      # Write the file's information to the CSV file
+      writer.writerow([filename, file_size, file_modified_time, file_path])
+
 
 
